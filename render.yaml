@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: pico-w-workshop
+    runtime: static
+    buildCommand: "true"
+    staticPublishPath: .

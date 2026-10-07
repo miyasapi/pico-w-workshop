@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pico W 電子工作教室 | MicroPythonではじめる計測IoT</title>
+    <meta
+      name="description"
+      content="Raspberry Pi Pico WとMicroPythonで学ぶ電子工作教室。LED、BME280、OLED、Wi-Fi、Renderサーバーまで全4回。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="#top">
+        <span class="logo-mark" aria-hidden="true"></span>
+        Pico W 電子工作教室
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">メニュー</span>
+        <span></span>
+      </button>
+      <nav id="site-nav" class="site-nav">
+        <a href="#about">教室について</a>
+        <a href="#curriculum">カリキュラム</a>
+        <a href="#wiring">配線</a>
+        <a href="#kit">キット</a>
+        <a href="#schedule">日程</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta" href="#apply">申し込む</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Raspberry Pi Pico W × MicroPython</p>
+          <h1>測って、<br />表示して、<br /><em>クラウドへ送る。</em></h1>
+          <p class="lead">
+            半田付けなし。Thonny と Pico W で、LED点滅から BME280・OLED、Wi-Fi、Render
+            サーバーまでを全4回で完成させます。プログラムはすべて MicroPython です。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#apply">次期クラスに申し込む</a>
+            <a class="btn btn-ghost" href="#curriculum">全4回の内容を見る</a>
+          </div>
+          <dl class="hero-meta">
+            <div>
+              <dt>対象</dt>
+              <dd>中学生〜大人 / 初心者歓迎</dd>
+            </div>
+            <div>
+              <dt>形式</dt>
+              <dd>全4回・各回実機実習</dd>
+            </div>
+            <div>
+              <dt>環境</dt>
+              <dd>Thonny + MicroPython</dd>
+            </div>
+          </dl>
+        </div>
+        <aside class="hero-board" aria-label="第1回のコード例">
+          <div class="board">
+            <div class="board-header">
+              <span>01_LED点滅 / main.py</span>
+              <span class="dots"><i></i><i></i><i></i></span>
+            </div>
+            <pre><code><span class="cmt"># 基板上の LED を 0.5 秒間隔で点滅</span>
+<span class="kw">from</span> machine <span class="kw">import</span> Pin
+<span class="kw">from</span> time <span class="kw">import</span> sleep
+
+led = Pin(<span class="str">"LED"</span>, Pin.OUT)
+
+<span class="kw">while</span> True:
+    led.value(<span class="num">1</span>)
+    sleep(<span class="num">0.5</span>)
+    led.value(<span class="num">0</span>)
+    sleep(<span class="num">0.5</span>)</code></pre>
+            <div class="board-status">
+              <span class="pulse"></span>
+              Thonny · MicroPython (Raspberry Pi Pico)
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" class="section">
+        <div class="section-head">
+          <p class="eyebrow">About</p>
+        </div>
+        <div class="about-grid">
+          <article>
+            <h3>実機が先</h3>
+            <p>
+              第1回はオンボードLEDと内蔵温度センサから入ります。配線の前に、書き込みと実行の流れを手で覚えます。
+            </p>
+          </article>
+          <article>
+            <h3>半田付けなし</h3>
+            <p>
+              Pico W はピンヘッダー実装済み。BME280 と OLED はジャンパーでつなぎます。SDA/SCL は GP8 / GP9 で統一です。
+            </p>
+          </article>
+          <article>
+            <h3>クラウドまで</h3>
+            <p>
+              第4回で Wi-Fi に接続し、Render サーバーへ温度・湿度・気圧を送ります。画面で自分の計測を確認して終了します。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="curriculum" class="section section-alt">
+        <div class="section-head">
+          <p class="eyebrow">Curriculum</p>
+          <h2>全4回のカリキュラム</h2>
+          <p>教材コードは MicroPython 統一です。CircuitPython は使いません。</p>
+        </div>
+        <ol class="curriculum">
+          <li>
+            <span class="week">第1回</span>
+            <div>
+              <h3>Thonny ではじめる / LED と内蔵温度</h3>
+              <p>
+                UF2 の確認、インタープリター設定、シェルで <code>print('はんなり')</code>。
+                基板LEDの点滅と、RP2040 内蔵温度センサの表示。
+              </p>
+              <ul>
+                <li>01_LED点滅 / main.py</li>
+                <li>01_温度測定 / main.py</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <span class="week">第2回</span>
+            <div>
+              <h3>I2C と BME280</h3>
+              <p>
+                配線図どおりにセンサーをつなぎ、I2C スキャンで 0x76 を確認してから温度・気圧・湿度を測ります。
+              </p>
+              <ul>
+                <li>MODE = "scan" でアドレス確認</li>
+                <li>MODE = "measure" で計測</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <span class="week">第3回</span>
+            <div>
+              <h3>OLED に出す</h3>
+              <p>
+                同じ I2C バスに SSD1306 を追加。0x3C を確認し、温湿度・気圧を画面に出します。
+              </p>
+              <ul>
+                <li>bme280.py / ssd1306.py を Pico へ保存</li>
+                <li>MODE = "oled" で表示</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <span class="week">第4回</span>
+            <div>
+              <h3>Wi-Fi と Render サーバー</h3>
+              <p>
+                ルータへ接続し、固定データでクラウドを確認したあと、BME280 の実測値を送ります。
+              </p>
+              <ul>
+                <li>Wi-Fi 接続 / I2C スキャン</li>
+                <li>Render サーバーへ固定データ → 計測送信</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="wiring" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Wiring</p>
+          <h2>第2回以降の配線（半田付けなし）</h2>
+          <p>ピン名を選ぶと、教室での接続先が出ます。</p>
+        </div>
+        <div class="pinout-wrap">
+          <div class="pico" role="img" aria-label="Raspberry Pi Pico W の簡易図">
+            <div class="pico-usb">USB</div>
+            <div class="pico-chip">RP2040 + CYW43439</div>
+            <div class="pico-led" id="onboard-led"></div>
+            <div class="pico-wifi">Wi-Fi</div>
+          </div>
+          <div class="pins">
+            <button type="button" data-pin="LED" data-use="第1回：基板上LEDの点滅">LED</button>
+            <button type="button" data-pin="ADC4" data-use="第1回：RP2040 内蔵温度センサ">内蔵温度</button>
+            <button type="button" data-pin="3V3 / ピン36" data-use="BME280 VDD / OLED VCC">3V3</button>
+            <button type="button" data-pin="GP8 / ピン11" data-use="SDA（BME280 と OLED 共通）">GP8 SDA</button>
+            <button type="button" data-pin="GP9 / ピン12" data-use="SCL（BME280 と OLED 共通）">GP9 SCL</button>
+            <button type="button" data-pin="GND / ピン13" data-use="BME280 GND / OLED GND">GND</button>
+            <button type="button" data-pin="GND / ピン8" data-use="BME280 SDO（アドレスを 0x76 にする）">SDO→GND</button>
+          </div>
+          <p class="pin-detail" id="pin-detail">ピンを選ぶと、教室での使い方がここに出ます。</p>
+        </div>
+        <table class="wire-table">
+          <caption>配線一覧</caption>
+          <thead>
+            <tr>
+              <th>物理ピン</th>
+              <th>GPIO</th>
+              <th>接続先</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>36</td>
+              <td>3V3</td>
+              <td>BME280 VDD / OLED VCC</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>GP8 SDA</td>
+              <td>BME280 SDA / OLED SDA</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>GP9 SCL</td>
+              <td>BME280 SCL / OLED SCL</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>GND</td>
+              <td>BME280 GND / OLED GND</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>GND</td>
+              <td>BME280 SDO（0x76）</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="kit" class="section section-alt">
+        <div class="section-head">
+          <p class="eyebrow">Kit</p>
+          <h2>講座で使うもの</h2>
+        </div>
+        <ul class="kit-list">
+          <li>Raspberry Pi Pico W（ピンヘッダー実装済み・MicroPython UF2 書き込み済み）</li>
+          <li>BME280 温湿度・気圧センサ</li>
+          <li>SSD1306 OLED（128×64）</li>
+          <li>ジャンパーワイヤー</li>
+          <li>USB ケーブル</li>
+          <li>テキストとサンプルコード</li>
+        </ul>
+        <p class="note">
+          PC（Windows）と Thonny をインストールします。第4回は自宅または会場の Wi-FiでRender サーバーと接続します。
+        </p>
+      </section>
+
+      <section id="schedule" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Schedule</p>
+          <h2>次期クラス</h2>
+        </div>
+        <div class="schedule-card">
+          <div>
+            <p class="term">全4回クラス</p>
+            <h3>日程・会場は申し込み時にご案内します</h3>
+            <p>少人数制。1人1キットで進めます。</p>
+          </div>
+          <dl>
+            <div>
+              <dt>受講料</dt>
+              <dd>お問い合わせ</dd>
+            </div>
+            <div>
+              <dt>定員</dt>
+              <dd>少人数</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="faq" class="section section-alt">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2>よくある質問</h2>
+        </div>
+        <div class="faq">
+          <details open>
+            <summary>プログラミング未経験でも大丈夫ですか？</summary>
+            <p>
+              大丈夫です。第1回は Thonny のシェルから始め、用意したコードを Pico に保存して動かします。書き換えは少しずつ増やします。
+            </p>
+          </details>
+          <details>
+            <summary>はんだ付けは必要ですか？</summary>
+            <p>キットの Pico W、BME280基板、OLED基板はピンヘッダー実装済みです。BME280基板、OLED基板とはジャンパー接続です。</p>
+          </details>
+          <details>
+            <summary>CircuitPython ですか？</summary>
+            <p>MicroPython (Raspberry Pi Pico) を使います。</p>
+          </details>
+          <details>
+            <summary>自分の Wi-Fi が必要ですか？</summary>
+            <p>第1〜3回は不要です。第4回だけ SSID とパスワード、Render サーバーの URL が必要になります。</p>
+          </details>
+        </div>
+      </section>
+
+      <section id="apply" class="section apply">
+        <div class="section-head">
+          <p class="eyebrow">Apply</p>
+          <h2>申し込み</h2>
+          <p>送信内容はこのブラウザ内で確認用に表示します。</p>
+        </div>
+        <form id="apply-form" class="apply-form" novalidate>
+          <label>
+            お名前
+            <input name="name" type="text" autocomplete="name" required />
+          </label>
+          <label>
+            メールアドレス
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+          <label>
+            経験
+            <select name="experience" required>
+              <option value="">選択してください</option>
+              <option>電子工作もプログラムも初めて</option>
+              <option>プログラムは少し書いたことがある</option>
+              <option>Arduino や他マイコンの経験あり</option>
+            </select>
+          </label>
+          <label>
+            参加動機・質問（任意）
+            <textarea name="note" rows="4"></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">申し込み内容を確認する</button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Pico W 電子工作教室 · Raspberry Pi Pico W は Raspberry Pi Ltd の商標です。Render は Render Services, Inc. のサービスです。</p>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>
