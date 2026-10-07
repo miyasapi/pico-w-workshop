@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pico W センサーマップ | Pico W 電子工作教室</title>
+    <meta
+      name="description"
+      content="Pico W 講座の計測データを地図とグラフで確認するセンサーマップ。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css?v=map" />
+  </head>
+  <body class="map-page">
+    <header class="site-header">
+      <a class="logo" href="index.html">
+        <span class="logo-mark" aria-hidden="true"></span>
+        Pico W 電子工作教室
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">メニュー</span>
+        <span></span>
+      </button>
+      <nav id="site-nav" class="site-nav">
+        <a href="index.html#about">教室について</a>
+        <a href="index.html#curriculum">カリキュラム</a>
+        <a href="index.html#wiring">配線</a>
+        <a href="index.html#kit">キット</a>
+        <a href="index.html#schedule">日程</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="sensor-map.html" aria-current="page">センサーマップ</a>
+        <a class="nav-cta" href="index.html#apply">申し込む</a>
+      </nav>
+    </header>
+
+    <main>
+      <iframe
+        class="map-frame"
+        src="https://pico-course.onrender.com/"
+        title="Pico W センサーマップ"
+        style="position: fixed; top: 72px; left: 0; width: 100%; height: calc(100vh - 72px); border: 0; background: #fff"
+      ></iframe>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>

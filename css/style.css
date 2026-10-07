@@ -652,3 +652,17 @@ textarea {
     display: flex;
   }
 }
+
+.map-page {
+  overflow: hidden;
+}
+
+.map-frame {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 72px);
+  border: 0;
+  background: #fff;
+}
